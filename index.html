@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For charts -->
+</head>
+<body>
+    <header>
+        <img src="CompanyLogo.png" alt="Company Logo" class="logo">
+        <h1>Sparta Company</h1>
+        <nav>
+            <a href="#" id="logout">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Login Page -->
+    <section id="login-page">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <label for="role">Role:</label>
+            <select id="role">
+                <option value="admin">Admin</option>
+                <option value="employee">Employee</option>
+            </select>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="admin-dashboard" class="hidden">
+        <h2>Admin Dashboard</h2>
+        <div class="task-manager">
+            <h3>Assign Work to Employees</h3>
+            <form id="taskForm">
+                <input type="text" id="employeeName" placeholder="Employee Name" required>
+                <input type="text" id="department" placeholder="Department" required>
+                <input type="date" id="assignmentDate" required>
+                <input type="text" id="taskDetails" placeholder="Task Details" required>
+                <button type="submit">Assign Task</button>
+            </form>
+            <ul id="assignedTasksList"></ul>
+        </div>
+    </section>
+
+    <!-- Employee Dashboard -->
+    <section id="employee-dashboard" class="hidden">
+        <h2>Employee Dashboard</h2>
+        <div>
+            <h3>Your Assigned Tasks</h3>
+            <table id="taskTable" border="1">
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Department</th>
+                        <th>Task Details</th>
+                        <th>Assigned Date/Time</th>
+                        <th>Progress</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+            <h3>Your Task Progress</h3>
+            <canvas id="barChart"></canvas>
+            <canvas id="pieChart"></canvas>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
